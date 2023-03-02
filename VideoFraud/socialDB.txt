@@ -1,0 +1,248 @@
+-- phpMyAdmin SQL Dump
+-- version 2.10.1
+-- http://www.phpmyadmin.net
+-- 
+-- Host: localhost
+-- Generation Time: Mar 01, 2019 at 10:32 AM
+-- Server version: 5.0.45
+-- PHP Version: 5.2.5
+-- 
+-- DFGDFG
+-- 
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+-- 
+-- Database: `social`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tb_buynow`
+-- 
+
+CREATE TABLE `tb_buynow` (
+  `id` int(11) NOT NULL,
+  `pname` varchar(1000) NOT NULL,
+  `cat` varchar(1000) NOT NULL,
+  `edesc` varchar(100) NOT NULL,
+  `qty` varchar(100) NOT NULL,
+  `price` varchar(1000) NOT NULL,
+  `tot` varchar(1000) NOT NULL,
+  `uname` varchar(50) NOT NULL,
+  `ename` varchar(100) NOT NULL,
+  `address` varchar(1000) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `img` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `tb_buynow`
+-- 
+
+INSERT INTO `tb_buynow` (`id`, `pname`, `cat`, `edesc`, `qty`, `price`, `tot`, `uname`, `ename`, `address`, `phone`, `img`) VALUES 
+(1, 'Micromax Mobile', 'MICROMAX', '1Gb RAM\r\nCamera Pixel Clear', '2', '2500', '5000', 'reva', 'Divya', '85,ANNA Nagar\r\nTrichy', '999787845', '3.jpg'),
+(2, 'Sony Mobile', 'SONY', '2GB RAM\r\nCamera Clear Pixel', '2', '15000', '30000', 'reva', 'Divya', '12,Anna Nagar\r\nChennai', '7845124578', '5.jpg');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tb_file`
+-- 
+
+CREATE TABLE `tb_file` (
+  `id` int(11) NOT NULL auto_increment,
+  `uname` varchar(100) NOT NULL,
+  `friend` varchar(100) NOT NULL,
+  `img1` varchar(100) NOT NULL,
+  `edate` varchar(50) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- 
+-- Dumping data for table `tb_file`
+-- 
+
+INSERT INTO `tb_file` (`id`, `uname`, `friend`, `img1`, `edate`) VALUES 
+(1, 'reva', 'divya', '2.png', '01-04-2018'),
+(2, 'ramya', 'reva', 'a.bmp', '21-04-2018'),
+(3, 'ramya', 'reva', 'Chrysanthemum_1.bmp', '21-04-2018');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tb_mess`
+-- 
+
+CREATE TABLE `tb_mess` (
+  `id` int(11) NOT NULL auto_increment,
+  `uname` varchar(100) NOT NULL,
+  `friend` varchar(100) NOT NULL,
+  `message` varchar(1000) NOT NULL,
+  `edate` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+-- 
+-- Dumping data for table `tb_mess`
+-- 
+
+INSERT INTO `tb_mess` (`id`, `uname`, `friend`, `message`, `edate`, `status`) VALUES 
+(1, 'divya', 'reva', 'Hai how r u', '01-04-2018', 'Read'),
+(2, 'ramya', 'reva', 'sdfsdffdgdfg', '21-04-2018', 'NoRead'),
+(3, 'ramya', 'reva', '', '21-04-2018', 'NoRead'),
+(4, 'ramya', 'reva', 'dfgdsfgdsffg', '27-02-2019', 'NoRead'),
+(5, 'rose', 'ramya', 'SDFSDFSADF', '01-03-2019', 'Read');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tb_product`
+-- 
+
+CREATE TABLE `tb_product` (
+  `id` int(11) NOT NULL,
+  `ename` varchar(100) NOT NULL,
+  `cat` varchar(100) NOT NULL,
+  `qty` varchar(100) NOT NULL,
+  `price` varchar(100) NOT NULL,
+  `edesc` varchar(1000) NOT NULL,
+  `img` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `tb_product`
+-- 
+
+INSERT INTO `tb_product` (`id`, `ename`, `cat`, `qty`, `price`, `edesc`, `img`) VALUES 
+(2, 'Sony Mobile', 'SONY', '100', '15000', '2GB RAM\r\nCamera Clear Pixel', '5.jpg'),
+(3, 'dgdsfgdf', 'SONY', '56', 'dfgdf', 'gdfg', 'a.bmp'),
+(4, 'dfgdfg', 'SONY', '67', 'fgh', 'fdghfgh', 'Chrysanthemum.jpg');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tb_recomm`
+-- 
+
+CREATE TABLE `tb_recomm` (
+  `pid` int(11) NOT NULL,
+  `pname` varchar(100) NOT NULL,
+  `cat` varchar(100) NOT NULL,
+  `edesc` varchar(100) NOT NULL,
+  `price` varchar(1000) NOT NULL,
+  `edate` varchar(100) NOT NULL,
+  `comm` varchar(100) NOT NULL,
+  `uname` varchar(1000) NOT NULL,
+  `img` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `tb_recomm`
+-- 
+
+INSERT INTO `tb_recomm` (`pid`, `pname`, `cat`, `edesc`, `price`, `edate`, `comm`, `uname`, `img`) VALUES 
+(1, 'Micromax Mobile', 'MICROMAX', '1Gb RAM\r\nCamera Pixel Clear', '2500', '01-04-2018', 'this product is very nice & cost price is low', 'reva', '3.jpg');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tb_reg`
+-- 
+
+CREATE TABLE `tb_reg` (
+  `id` varchar(11) NOT NULL,
+  `ename` varchar(100) NOT NULL,
+  `gender` varchar(100) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `city` varchar(1000) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `uname` varchar(100) NOT NULL,
+  `pass` varchar(100) NOT NULL,
+  `img1` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `tb_reg`
+-- 
+
+INSERT INTO `tb_reg` (`id`, `ename`, `gender`, `phone`, `address`, `city`, `email`, `uname`, `pass`, `img1`) VALUES 
+('1', 'divya', 'Female', '999787845', '85,kk nagar', 'Trichy', 'divya@gmail.com', 'divya', '123', '4.jpg'),
+('2', 'revathy', 'Female', '7845124578', '85,ANNA NAGAR\r\nTrichy', 'Trichy', 'reva@gmail.com', 'reva', '123', '123.jpg'),
+('3', 'ramya', 'Female', '994563535', 'fghdfghfg', 'Trichy', 'revathygb2014@gmail.com', 'ramya', '123', 'Penguins.jpg'),
+('4', 'revathy', 'Female', '565675467', 'fgdsfgdfg', 'Trichy', 're@gmail.com', 'reva', '123', 'Chrysanthemum.jpg'),
+('5', 'kalai', 'Female', '99945462525', '12,Anna nagar', 'Trichy', 'kalai@gmail.com', 'kalai', '123', 'Penguins.jpg'),
+('6', 'rose', 'Female', '9945252525', 'dfgdsfg', 'Trichy', 'rose@gmail.com', 'rose', '123', 'Chrysanthemum.jpg');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tb_request`
+-- 
+
+CREATE TABLE `tb_request` (
+  `id` int(11) NOT NULL auto_increment,
+  `uname` varchar(50) NOT NULL,
+  `friend` varchar(50) NOT NULL,
+  `edate` varchar(50) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+-- 
+-- Dumping data for table `tb_request`
+-- 
+
+INSERT INTO `tb_request` (`id`, `uname`, `friend`, `edate`, `status`) VALUES 
+(1, 'divya', 'reva', '01-04-2018', 'Accept'),
+(2, 'reva', 'divya', '01-04-2018', 'Accept'),
+(3, 'ramya', 'divya', '21-04-2018', 'Friend Request'),
+(4, 'ramya', 'reva', '21-04-2018', 'Accept'),
+(5, 'reva', 'divya', '21-04-2018', 'Friend Request'),
+(6, 'reva', 'ramya', '21-04-2018', 'Accept'),
+(7, 'reva', 'divya', '20-02-2019', 'Friend Request'),
+(8, 'rose', 'ramya', '27-02-2019', 'Accept');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tb_upload`
+-- 
+
+CREATE TABLE `tb_upload` (
+  `id` int(11) NOT NULL,
+  `uname` varchar(100) NOT NULL,
+  `friend` varchar(100) NOT NULL,
+  `img` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `tb_upload`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `tb_video`
+-- 
+
+CREATE TABLE `tb_video` (
+  `id` int(11) NOT NULL auto_increment,
+  `uname` varchar(100) NOT NULL,
+  `friend` varchar(100) NOT NULL,
+  `message` varchar(1000) NOT NULL,
+  `edate` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+-- 
+-- Dumping data for table `tb_video`
+-- 
+
+INSERT INTO `tb_video` (`id`, `uname`, `friend`, `message`, `edate`, `status`) VALUES 
+(12, 'reva', 'divya', 'mov_bbb.ogg', '01-03-2019', 'VideoPlay');
